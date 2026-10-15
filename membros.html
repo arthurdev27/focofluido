@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Área de membros — FOCO FLUIDO</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+:root{--bg:#F8F7F4;--ink:#17233B;--pu:#8B7CF6;--mint:#BCE8D3;--card:#fff;--mut:#687084;--line:#e6e4de;--on:#fff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0f1626;--ink:#EEF0F6;--card:#18223a;--mut:#A3ABC0;--line:#2a3550;--on:#0f1626;color-scheme:dark}}
+:root[data-theme=dark]{--bg:#0f1626;--ink:#EEF0F6;--card:#18223a;--mut:#A3ABC0;--line:#2a3550;--on:#0f1626;color-scheme:dark}
+*{box-sizing:border-box}html,body{overflow-x:hidden}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Manrope,system-ui,sans-serif;line-height:1.6}
+.w{max-width:860px;margin:0 auto;padding:0 16px}
+h1,h2,h3{line-height:1.2;margin:0 0 10px;letter-spacing:-.02em}h1{font-size:clamp(24px,5vw,34px)}h2{font-size:22px}h3{font-size:17px}
+.mut{color:var(--mut)}p{margin:0 0 10px}
+.top{display:flex;justify-content:space-between;align-items:center;padding:16px 0;gap:10px;flex-wrap:wrap}
+.badge{background:var(--pu);color:#17233B;border-radius:999px;padding:4px 12px;font-size:12px;font-weight:800}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:4px 0 12px;position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);z-index:5}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:8px 14px;font:600 13px Manrope,sans-serif;cursor:pointer}
+.tabs button[aria-selected=true]{background:var(--ink);color:var(--on)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:20px;margin-bottom:14px;box-shadow:0 8px 30px rgba(23,35,59,.06)}
+.btn{display:inline-block;border:0;border-radius:999px;padding:11px 20px;font:600 14px Manrope,sans-serif;cursor:pointer;text-decoration:none;background:var(--ink);color:var(--on)}
+.btn.pu{background:var(--pu);color:#17233B}.btn.sm{padding:7px 13px;font-size:13px}
+input[type=text]{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:10px 12px;flex:1;min-width:0}
+.row{display:flex;gap:8px;margin-bottom:10px}
+.it{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--line)}
+.it input{width:20px;height:20px;accent-color:#8B7CF6;margin-top:3px;flex:none}.it.d span{text-decoration:line-through;opacity:.55}
+.it span{flex:1;overflow-wrap:anywhere}
+.x{background:none;border:0;color:var(--mut);cursor:pointer;text-decoration:underline;font:inherit;font-size:13px}
+.bar{height:10px;border-radius:9px;background:var(--line);overflow:hidden;margin:8px 0}.bar b{display:block;height:100%;background:var(--pu);width:0;transition:width .3s}
+ol,ul{padding-left:20px;margin:8px 0}li{margin-bottom:6px}
+.lock{text-align:center;padding:30px 20px}
+:focus-visible{outline:3px solid var(--pu);outline-offset:2px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+:root{--bg:#080d19;--ink:#E6EBF8;--card:#0f1729;--mut:#8D99B5;--line:#1c2a47;--on:#04150f;--pu:#8B7CF6;--mint:#6CF2C2;color-scheme:dark}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:48px 48px;opacity:.5;-webkit-mask-image:radial-gradient(ellipse at 50% 0,#000 20%,transparent 75%);mask-image:radial-gradient(ellipse at 50% 0,#000 20%,transparent 75%)}
+.eyebrow,.tag,.chip,.badge,.num,.amt,.timer,.logo,.ill{font-family:"JetBrains Mono",ui-monospace,monospace}
+.eyebrow{text-transform:lowercase;letter-spacing:.04em;color:var(--mint);opacity:1}
+.eyebrow::before{content:"> ";width:auto;height:auto;background:none;border-radius:0;margin:0}
+.card{border-radius:14px;box-shadow:none;background:linear-gradient(180deg,rgba(255,255,255,.03),transparent),var(--card)}
+.grid .card:hover{border-color:var(--mint);box-shadow:0 0 0 1px var(--mint),0 10px 40px rgba(108,242,194,.08)}
+.btn{border-radius:10px}.btn:not(.sec):not(.pu){background:var(--mint);color:#04150f}.btn.sec{border-color:var(--line)}.btn.pu{color:#0b0720}
+.chip{border-radius:6px;background:transparent;border:1px solid var(--line);color:var(--mint);font-size:12px}
+.num{border-radius:8px;background:transparent;border:1px solid var(--mint);color:var(--mint)}
+.tag{border-radius:6px}.tag.alta{background:var(--pu);color:#0b0720}.tag.media{background:var(--mint);color:#04150f}
+.band{background:#0b1222;color:var(--ink);border-block:1px solid var(--line)}.band .mut{color:var(--mut);opacity:1}
+.bar b{background:linear-gradient(90deg,var(--pu),var(--mint))}.timer{color:var(--mint)}
+header{background:rgba(8,13,25,.8)}input,select{border-radius:10px}details{border-radius:12px}
+.price.hl{border-color:var(--mint);box-shadow:0 0 50px rgba(108,242,194,.12)}.badge{background:var(--mint);color:#04150f;border-radius:6px}
+.mock::before{content:"foco-fluido ~ hoje";display:block;font:500 12px "JetBrains Mono",monospace;color:var(--mut);border-bottom:1px solid var(--line);margin-bottom:12px;padding-bottom:10px}
+main>section:first-child{background:radial-gradient(ellipse at 80% 0,rgba(139,124,246,.22),transparent 55%),radial-gradient(ellipse at 10% 30%,rgba(108,242,194,.10),transparent 50%)}
+h1::after{content:"_";color:var(--mint);animation:bl 1s steps(1) infinite}@keyframes bl{50%{opacity:0}}
+.msg{background:rgba(108,242,194,.12);color:var(--mint);border:1px solid var(--mint)}
+@media(prefers-reduced-motion:reduce){h1::after{animation:none}}
+</style></head>
+<body><div class="w">
+<div class="top"><div><h1>🌿 Área de membros</h1><p class="mut" style="margin:0">FOCO FLUIDO · um passo de cada vez.</p></div><span class="badge" id="pl"></span></div>
+<div class="tabs" id="tabs" role="tablist"></div>
+<div id="view" aria-live="polite"></div>
+<p class="mut" style="font-size:12px;margin:24px 0">Ferramentas educacionais de organização e produtividade; não substituem avaliação ou acompanhamento profissional de saúde. Seus dados do planner ficam salvos só neste navegador. Suporte: focofluido@gmail.com</p>
+</div>
+<script>
+/* ===== CONFIG: edite aqui links e calendário ===== */
+const CONFIG={
+ upgrade:"https://checkout-proprio.com/fc3a951c5cf2156c"
+};
+const COMPLETO=/completo/i.test(location.search+location.hash);
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const ls={g(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch(e){return d}},s(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const ol=a=>"<ol>"+a.map(x=>`<li>${x}</li>`).join("")+"</ol>";
+const TPL={
+"Gravar um vídeo":["Definir a ideia em uma frase","Escrever 3 tópicos","Preparar luz e som","Gravar sem parar para revisar","Salvar e nomear o arquivo","Agendar a edição"],
+"Lançar uma oferta":["Escrever a promessa em uma frase","Listar o que está incluso","Definir preço e link de pagamento","Escrever 1 texto de divulgação","Publicar e responder dúvidas"],
+"Semana de conteúdo":["Escolher 3 temas","Rascunhar 1 conteúdo por tema","Agendar os horários","Reservar 20 min para responder comentários"],
+"Atender novo cliente":["Ler a mensagem inteira","Responder com o próximo passo claro","Anotar o prazo combinado","Colocar a entrega na agenda"],
+"Fechar o dia":["Marcar o que foi concluído","Mover o que sobrou, sem culpa","Escolher a primeira tarefa de amanhã","Encerrar o trabalho"]};
+const V={
+metodo:()=>`<div class="card"><h2>O método em 4 passos</h2><p class="mut">Use todos os dias, em 10 a 15 minutos. Adapte à sua rotina.</p>${ol(["<b>Despeje:</b> escreva tudo o que está na cabeça, sem organizar.","<b>Escolha 3:</b> marque no máximo três prioridades para hoje.","<b>Quebre:</b> transforme cada prioridade em passos de até 10 minutos. O primeiro passo precisa ser tão pequeno que dê para começar agora.","<b>Revise:</b> à noite, marque o que fez, mova o resto para amanhã e comemore o que avançou."])}</div><div class="card"><h3>Regra de ouro</h3><p>Dia ruim não cancela o sistema. Se perdeu o dia, recomece pelo passo 2.</p></div>`,
+planner:()=>{const t=ls.g("mf_t",[]),d=t.filter(x=>x.d).length;return`<div class="card"><h2>Planner digital</h2><div class="row"><input type="text" id="nt" placeholder="Nova tarefa" aria-label="Nova tarefa" maxlength="120"><button class="btn sm" id="ad">Adicionar</button></div><div class="bar"><b style="width:${t.length?d/t.length*100:0}%"></b></div><p class="mut" style="font-size:13px">${d} de ${t.length} concluídas</p>${t.map((x,i)=>`<div class="it ${x.d?"d":""}"><input type="checkbox" data-c="${i}" ${x.d?"checked":""} aria-label="Concluir"><span>${esc(x.t)}</span><button class="x" data-x="${i}">excluir</button></div>`).join("")||'<p class="mut">Sem tarefas. Escolha até 3 para hoje.</p>'}</div>`},
+check:()=>{const c=ls.g("mf_c",[]);return`<div class="card"><h2>Templates de checklist</h2><p class="mut">Toque para copiar um modelo para suas listas.</p><div style="display:flex;flex-wrap:wrap;gap:8px">${Object.keys(TPL).map(k=>`<button class="btn sm" data-u="${esc(k)}">${esc(k)}</button>`).join("")}</div></div>${c.map((l,i)=>`<div class="card"><h3>${esc(l.n)} <button class="x" data-rm="${i}">remover</button></h3>${l.s.map((s,j)=>`<div class="it ${s.d?"d":""}"><input type="checkbox" data-l="${i}-${j}" ${s.d?"checked":""} aria-label="${esc(s.t)}"><span>${esc(s.t)}</span></div>`).join("")}</div>`).join("")}`},
+guias:()=>`<div class="card"><h2>Planejamento diário</h2>${ol(["Despeje a mente por 3 minutos.","Escolha até 3 prioridades.","Defina o primeiro passo de 10 minutos.","Reserve uma folga para imprevistos."])}</div><div class="card"><h2>Planejamento semanal (domingo ou segunda, 15 min)</h2>${ol(["Olhe os compromissos fixos.","Escolha 1 meta principal da semana.","Distribua 3 blocos de foco.","Deixe um dia com menos tarefas para ajustes."])}</div><div class="card"><h2>Retomada do foco</h2><p class="mut">Depois de uma interrupção:</p>${ol(["Respire fundo e não se critique.","Escreva onde parou em uma frase.","Escolha o menor próximo passo.","Ligue um timer de 10 minutos.","Ao fim, decida se continua."])}</div>`,
+extras:()=>`<div class="card"><h2>Materiais adicionais</h2><h3>Desafio de 7 dias para começar</h3>${ol(["Dia 1: despeje e escolha 3.","Dia 2: faça só o primeiro passo.","Dia 3: uma sessão de 15 min.","Dia 4: revise sem culpa.","Dia 5: quebre um projeto grande.","Dia 6: faça um planejamento semanal.","Dia 7: liste suas pequenas vitórias."])}<h3>Roteiro para dia caótico</h3>${ol(["Escolha 1 tarefa essencial.","Faça 10 minutos dela.","Feche o dia com uma vitória."])}</div>`
+};
+const TABS=[["metodo","🧠 Método"],["planner","📅 Planner"],["check","✅ Checklists"],["guias","📘 Guias"],["extras","🎁 Extras",1]];
+let cur="metodo";
+function render(){
+ $("#tabs").innerHTML=TABS.map(t=>`<button role="tab" data-t="${t[0]}" aria-selected="${t[0]==cur}">${t[1]}${t[2]&&!COMPLETO?" 🔒":""}</button>`).join("");
+ const lock=TABS.find(t=>t[0]==cur)[2]&&!COMPLETO;
+ $("#view").innerHTML=lock?`<div class="card lock"><h2>Disponível no plano Completo</h2><p class="mut">Os materiais adicionais fazem parte do plano Completo.</p><a class="btn pu" href="${CONFIG.upgrade}">Conhecer o plano Completo</a></div>`:V[cur]();
+}
+$("#pl").textContent=COMPLETO?"Plano Completo":"Plano Essencial";
+document.addEventListener("click",e=>{
+ const d=e.target.dataset;
+ if(d.t){cur=d.t;render();return}
+ if(d.x!==undefined){const t=ls.g("mf_t",[]);t.splice(+d.x,1);ls.s("mf_t",t);render()}
+ if(e.target.id=="ad"){const v=$("#nt").value.trim();if(v){const t=ls.g("mf_t",[]);t.push({t:v,d:0});ls.s("mf_t",t);render()}}
+ if(d.u){const c=ls.g("mf_c",[]);c.unshift({n:d.u,s:TPL[d.u].map(t=>({t,d:0}))});ls.s("mf_c",c);render()}
+ if(d.rm!==undefined){const c=ls.g("mf_c",[]);c.splice(+d.rm,1);ls.s("mf_c",c);render()}
+});
+document.addEventListener("change",e=>{
+ const d=e.target.dataset;
+ if(d.c!==undefined){const t=ls.g("mf_t",[]);t[+d.c].d=e.target.checked?1:0;ls.s("mf_t",t);render()}
+ if(d.l){const[i,j]=d.l.split("-").map(Number),c=ls.g("mf_c",[]);c[i].s[j].d=e.target.checked?1:0;ls.s("mf_c",c);render()}
+});
+document.addEventListener("keydown",e=>{if(e.key=="Enter"&&e.target.id=="nt")$("#ad").click()});
+render();
+</script></body></html>

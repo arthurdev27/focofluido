@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FOCO FLUIDO — menos culpa. mais clareza. um passo de cada vez.</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+<meta name="description" content="Sistema de produtividade flexível para empreendedores digitais: planner, checklists e timer de foco.">
+<meta property="og:title" content="FOCO FLUIDO">
+<meta property="og:description" content="menos culpa. mais clareza. um passo de cada vez.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+:root{--bg:#F8F7F4;--ink:#17233B;--pu:#8B7CF6;--mint:#BCE8D3;--card:#fff;--mut:#687084;--line:#e6e4de;--on:#fff;--sh:0 8px 30px rgba(23,35,59,.08);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0f1626;--ink:#EEF0F6;--card:#18223a;--mut:#A3ABC0;--line:#2a3550;--on:#0f1626;--sh:0 8px 30px rgba(0,0,0,.35);color-scheme:dark}}
+:root[data-theme=dark]{--bg:#0f1626;--ink:#EEF0F6;--card:#18223a;--mut:#A3ABC0;--line:#2a3550;--on:#0f1626;--sh:0 8px 30px rgba(0,0,0,.35);color-scheme:dark}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Manrope,Inter,system-ui,sans-serif;line-height:1.6}
+.w{max-width:1080px;margin:0 auto;padding:0 20px}
+section{padding:72px 0}
+h1,h2,h3{line-height:1.15;margin:0 0 14px;letter-spacing:-.02em}
+h1{font-size:clamp(32px,5vw,52px);font-weight:800}
+h2{font-size:clamp(25px,3.4vw,36px);font-weight:800}
+h3{font-size:18px}
+p{margin:0 0 12px}
+.mut{color:var(--mut)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--pu);outline-offset:2px}
+.btn{display:inline-block;border:0;border-radius:999px;padding:13px 24px;font:600 15px Manrope,sans-serif;cursor:pointer;text-decoration:none;background:var(--ink);color:var(--on)}
+.btn.sec{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.btn.pu{background:var(--pu);color:#17233B}
+.btn.sm{padding:8px 14px;font-size:13px}
+header{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:62px;gap:12px}
+.logo{font-weight:800;text-decoration:none;letter-spacing:.04em}
+.logo i{display:inline-block;width:12px;height:12px;border-radius:50%;background:var(--pu);margin-right:8px}
+.links{display:flex;gap:22px;align-items:center}
+.links a{text-decoration:none;font-size:14px;color:var(--mut)}
+#mb{display:none;background:none;border:1px solid var(--line);border-radius:10px;padding:8px 12px;color:var(--ink);font:inherit}
+@media(max-width:780px){#mb{display:block}.links{display:none;position:absolute;top:62px;left:0;right:0;background:var(--bg);flex-direction:column;padding:18px;border-bottom:1px solid var(--line)}.links.open{display:flex}}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+@media(max-width:860px){.hero{grid-template-columns:1fr}}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.chip{background:var(--mint);color:#17233B;border-radius:999px;padding:5px 12px;font-size:13px;font-weight:600}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:var(--sh)}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.num{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--pu);color:#17233B;font-weight:800;margin-bottom:10px}
+.band{background:var(--ink);color:var(--bg)}
+.band .mut{color:inherit;opacity:.8}
+.mock .row{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px}
+.bar{height:10px;border-radius:9px;background:var(--line);overflow:hidden}
+.bar b{display:block;height:100%;width:0;background:var(--pu);transition:width .3s}
+.demo{display:grid;grid-template-columns:1.5fr 1fr;gap:18px}
+@media(max-width:860px){.demo{grid-template-columns:1fr}}
+input,select{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:10px 12px;min-width:0}
+.add{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.add input[type=text]{flex:1 1 160px}
+.tabs{display:flex;gap:6px;margin-bottom:6px}
+.tabs button{border:1px solid var(--line);background:none;color:var(--ink);border-radius:999px;padding:6px 14px;font:inherit;font-size:13px;cursor:pointer}
+.tabs button[aria-pressed=true]{background:var(--ink);color:var(--on)}
+.task{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}
+.task.done .t{text-decoration:line-through;opacity:.55}
+.task .t{flex:1;min-width:0;overflow-wrap:anywhere}
+.task input{width:20px;height:20px;accent-color:#8B7CF6}
+.tag{font-size:12px;border-radius:999px;padding:2px 9px;background:var(--line)}
+.tag.alta{background:var(--pu);color:#17233B}.tag.media{background:var(--mint);color:#17233B}
+.ib{background:none;border:0;color:var(--mut);cursor:pointer;font:inherit;font-size:13px;padding:4px 6px;text-decoration:underline}
+.timer{font-size:48px;font-weight:800;font-variant-numeric:tabular-nums;margin:6px 0}
+.msg{background:var(--mint);color:#17233B;border-radius:14px;padding:10px 14px;font-size:14px;margin-top:12px}
+.msg:empty{display:none}
+.price{position:relative}.price.hl{border:2px solid var(--pu)}
+.price ul{padding-left:18px;margin:14px 0}
+.amt{font-size:32px;font-weight:800}
+.ill{font-size:12px;background:var(--mint);color:#17233B;border-radius:8px;padding:2px 8px;font-weight:700}
+.part{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.15);font-size:14px}
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:700}
+footer{border-top:1px solid var(--line);padding:36px 0;font-size:14px}
+footer nav{height:auto;flex-wrap:wrap}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:inherit;opacity:.85;margin:0 0 10px}
+.eyebrow::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--pu);margin-right:8px}
+.card{transition:transform .2s,box-shadow .2s}.grid .card:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(23,35,59,.12)}
+.badge{position:absolute;top:-13px;right:18px;background:var(--pu);color:#17233B;font-size:12px;font-weight:800;border-radius:999px;padding:4px 12px}
+.price.hl{box-shadow:0 14px 44px color-mix(in srgb,var(--pu) 28%,transparent)}
+main>section:first-child{background:radial-gradient(ellipse at 85% 0,color-mix(in srgb,var(--pu) 16%,transparent),transparent 60%)}
+.card{border-radius:24px}
+img,svg{max-width:100%}html,body{overflow-x:hidden}
+.btn{transition:transform .15s,box-shadow .15s}.btn:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(139,124,246,.35)}
+.btn:not(.sec):not(.pu){background:linear-gradient(135deg,var(--ink),color-mix(in srgb,var(--ink) 72%,var(--pu)))}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}.rv.in{opacity:1;transform:none}
+.mcta{display:none;position:fixed;left:16px;right:16px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:20;text-align:center;box-shadow:0 10px 30px rgba(23,35,59,.3)}
+@media(max-width:600px){section{padding:48px 0}.w{padding:0 16px}.mcta{display:block}footer{padding-bottom:90px}.hero .btn{display:block;width:100%;text-align:center;margin-bottom:10px}.add>*{flex:1 1 100%}.add input[type=text]{flex-basis:100%}.add select,.add input[type=number]{flex:1 1 45%}.task{flex-wrap:wrap}.task .tag{order:3}.timer{font-size:40px}.amt{font-size:28px}.card{padding:18px}.chips{gap:6px}}
+@media(max-width:360px){h1{font-size:28px}h2{font-size:23px}.btn{padding:12px 18px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.grid .card:hover{transform:none}.rv{opacity:1;transform:none}}
+
+:root{--bg:#080d19;--ink:#E6EBF8;--card:#0f1729;--mut:#8D99B5;--line:#1c2a47;--on:#04150f;--pu:#8B7CF6;--mint:#6CF2C2;color-scheme:dark}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:48px 48px;opacity:.5;-webkit-mask-image:radial-gradient(ellipse at 50% 0,#000 20%,transparent 75%);mask-image:radial-gradient(ellipse at 50% 0,#000 20%,transparent 75%)}
+.eyebrow,.tag,.chip,.badge,.num,.amt,.timer,.logo,.ill{font-family:"JetBrains Mono",ui-monospace,monospace}
+.eyebrow{text-transform:lowercase;letter-spacing:.04em;color:var(--mint);opacity:1}
+.eyebrow::before{content:"> ";width:auto;height:auto;background:none;border-radius:0;margin:0}
+.card{border-radius:14px;box-shadow:none;background:linear-gradient(180deg,rgba(255,255,255,.03),transparent),var(--card)}
+.grid .card:hover{border-color:var(--mint);box-shadow:0 0 0 1px var(--mint),0 10px 40px rgba(108,242,194,.08)}
+.btn{border-radius:10px}.btn:not(.sec):not(.pu){background:var(--mint);color:#04150f}.btn.sec{border-color:var(--line)}.btn.pu{color:#0b0720}
+.chip{border-radius:6px;background:transparent;border:1px solid var(--line);color:var(--mint);font-size:12px}
+.num{border-radius:8px;background:transparent;border:1px solid var(--mint);color:var(--mint)}
+.tag{border-radius:6px}.tag.alta{background:var(--pu);color:#0b0720}.tag.media{background:var(--mint);color:#04150f}
+.band{background:#0b1222;color:var(--ink);border-block:1px solid var(--line)}.band .mut{color:var(--mut);opacity:1}
+.bar b{background:linear-gradient(90deg,var(--pu),var(--mint))}.timer{color:var(--mint)}
+header{background:rgba(8,13,25,.8)}input,select{border-radius:10px}details{border-radius:12px}
+.price.hl{border-color:var(--mint);box-shadow:0 0 50px rgba(108,242,194,.12)}.badge{background:var(--mint);color:#04150f;border-radius:6px}
+.mock::before{content:"foco-fluido ~ hoje";display:block;font:500 12px "JetBrains Mono",monospace;color:var(--mut);border-bottom:1px solid var(--line);margin-bottom:12px;padding-bottom:10px}
+main>section:first-child{background:radial-gradient(ellipse at 80% 0,rgba(139,124,246,.22),transparent 55%),radial-gradient(ellipse at 10% 30%,rgba(108,242,194,.10),transparent 50%)}
+h1::after{content:"_";color:var(--mint);animation:bl 1s steps(1) infinite}@keyframes bl{50%{opacity:0}}
+.msg{background:rgba(108,242,194,.12);color:var(--mint);border:1px solid var(--mint)}
+@media(prefers-reduced-motion:reduce){h1::after{animation:none}}
+</style>
+</head>
+<body>
+<header><div class="w"><nav>
+<a class="logo" href="#topo"><i></i>FOCO FLUIDO</a>
+<button id="mb" aria-expanded="false" aria-controls="lk">Menu</button>
+<div class="links" id="lk"><a href="#problema">O problema</a><a href="#demo">Demonstração</a><a href="#recursos">Recursos</a><a href="#precos">Planos</a><a href="#depois">O que recebo</a><a href="#faq">Dúvidas</a><a class="btn sm" href="#precos">Quero começar</a></div>
+</nav></div></header>
+
+<main id="topo">
+<section><div class="w hero">
+<div>
+<h1>você não precisa de mais motivação. precisa de um sistema que funcione para você.</h1>
+<p class="mut">Organize suas ideias, comece tarefas importantes e avance nos seus projetos com um método de produtividade flexível, criado para a realidade de empreendedores digitais com dificuldades de foco e organização.</p>
+<p><a class="btn" href="#precos">quero organizar minha rotina ✨</a> <a class="btn sec" href="#solucao">conhecer o método</a></p>
+<div class="chips"><span class="chip">📅 Planner digital</span><span class="chip">✅ Checklists inteligentes</span><span class="chip">⏱️ Timer de foco</span></div>
+</div>
+<div class="card mock" aria-label="Prévia ilustrativa do painel">
+<p class="mut" style="margin:0">Bom dia. Um passo de cada vez.</p>
+<h3>☀️ Hoje</h3>
+<div class="row"><span>☑ Roteiro do vídeo</span><span class="tag alta">alta · 25 min</span></div>
+<div class="row"><span>☐ Responder 3 clientes</span><span class="tag media">média · 15 min</span></div>
+<div class="row"><span>☐ Revisar proposta</span><span class="tag">baixa · 10 min</span></div>
+<p class="mut" style="margin:14px 0 6px;font-size:13px">Progresso do dia: 1 de 3</p>
+<div class="bar"><b style="width:33%"></b></div>
+</div>
+</div></section>
+
+<section id="problema" class="band"><div class="w">
+<p class="eyebrow">O problema</p><h2>você tem ideias de sobra. o difícil é conseguir tirar tudo do papel.</h2>
+<div class="grid" style="margin:24px 0">
+<div class="card" style="color:var(--ink)">Começa vários projetos e tem dificuldade para terminá-los.</div>
+<div class="card" style="color:var(--ink)">Adia tarefas importantes mesmo sabendo que precisa realizá-las.</div>
+<div class="card" style="color:var(--ink)">Monta planejamentos complexos que não consegue seguir.</div>
+<div class="card" style="color:var(--ink)">Perde o foco e sente dificuldade para voltar ao trabalho.</div>
+<div class="card" style="color:var(--ink)">Fica sobrecarregado tentando decidir por onde começar.</div>
+<div class="card" style="color:var(--ink)">Sente culpa ao comparar sua produtividade com a de outras pessoas.</div>
+</div>
+<p>você não precisa se culpar por cada dia difícil. pode começar construindo uma rotina mais compatível com suas necessidades.</p>
+</div></section>
+
+<section id="solucao"><div class="w">
+<p class="eyebrow">O método</p><h2>um sistema simples para transformar intenção em ação.</h2>
+<p class="mut">O FOCO FLUIDO reúne quatro pilares em um só sistema.</p>
+<div class="grid" style="margin-top:22px">
+<div class="card"><span class="num">1</span><h3>🎯 Clareza</h3><p class="mut">Saiba quais tarefas merecem sua atenção agora. Ex.: escolha 3 prioridades para hoje.</p></div>
+<div class="card"><span class="num">2</span><h3>⚡ Ação</h3><p class="mut">Divida projetos grandes em passos pequenos. Ex.: "lançar curso" vira "escrever título da aula 1".</p></div>
+<div class="card"><span class="num">3</span><h3>🔄 Flexibilidade</h3><p class="mut">Reorganize o dia sem abandonar todo o planejamento. Ex.: mova o que sobrou para amanhã.</p></div>
+<div class="card"><span class="num">4</span><h3>📈 Constância</h3><p class="mut">Acompanhe seu progresso e suas pequenas vitórias, dia após dia.</p></div>
+</div></div></section>
+
+<section id="demo" style="background:#0b1222;border-block:1px solid var(--line)"><div class="w">
+<p class="eyebrow">Demonstração</p><h2>experimente o planner agora.</h2>
+<p class="mut">Demonstração funcional. Suas tarefas ficam salvas apenas neste navegador (armazenamento local); nenhum dado é enviado a servidor.</p>
+<div class="demo">
+<div class="card">
+<h3 id="greet">Olá</h3><p class="mut" id="date" style="margin:0"></p>
+<div class="add"><input type="text" id="nt" placeholder="Nova tarefa" aria-label="Nova tarefa" maxlength="120">
+<select id="np" aria-label="Prioridade"><option value="alta">Alta</option><option value="media" selected>Média</option><option value="baixa">Baixa</option></select>
+<input type="number" id="nd" value="15" min="1" max="240" aria-label="Duração em minutos" style="width:84px">
+<button class="btn sm" id="addb">Adicionar</button></div>
+<div id="err" class="mut" role="alert" style="font-size:13px"></div>
+<div class="tabs" role="group" aria-label="Filtro"><button data-f="all" aria-pressed="true">Todas</button><button data-f="pend" aria-pressed="false">Pendentes</button><button data-f="done" aria-pressed="false">Concluídas</button></div>
+<div id="list"></div>
+<p style="margin-top:14px"><button class="btn sec sm" id="resched">Reorganizar não concluídas para amanhã</button></p>
+</div>
+<div>
+<div class="card"><h3>Progresso do dia</h3><div class="bar"><b id="pb"></b></div><p class="mut" id="pt" style="margin:8px 0 0;font-size:14px"></p>
+<h3 style="margin-top:18px">Pequenas vitórias</h3><ul id="wins" style="padding-left:18px;margin:0;font-size:14px"></ul></div>
+<div class="card" style="margin-top:16px"><h3>Sessão de foco</h3>
+<label class="mut" style="font-size:14px">Minutos <input type="number" id="tm" value="25" min="1" max="120" style="width:80px"></label>
+<div class="timer" id="td" aria-live="off">25:00</div>
+<button class="btn sm" id="ts">Iniciar</button> <button class="btn sec sm" id="tr">Reiniciar</button>
+<div class="msg" id="msg" role="status"></div></div>
+</div></div></div></section>
+
+<section id="recursos"><div class="w">
+<p class="eyebrow">Recursos</p><h2>tudo o que você precisa, sem excesso.</h2>
+<div class="grid" style="margin-top:22px">
+<div class="card"><h3>📅 Planner digital</h3><p class="mut">Organize tarefas, projetos e compromissos em um único lugar.</p></div>
+<div class="card"><h3>✅ Checklists inteligentes</h3><p class="mut">Transforme tarefas complexas em pequenas etapas mais fáceis de iniciar.</p></div>
+<div class="card"><h3>🗓️ Planejamento flexível</h3><p class="mut">Ajuste suas prioridades quando o dia não sair como planejado.</p></div>
+<div class="card"><h3>🧭 Retomada do foco</h3><p class="mut">Pequenos roteiros para voltar à tarefa depois de uma interrupção.</p></div>
+<div class="card"><h3>🏆 Pequenas vitórias</h3><p class="mut">Veja o que você fez no dia, não só o que ficou faltando.</p></div>
+
+</div>
+<h2 style="margin-top:56px">como funciona.</h2>
+<div class="grid" style="margin-top:16px">
+<div class="card"><span class="num">1</span><h3>🧠 Organize</h3><p class="mut">Escolha o que realmente importa neste momento.</p></div>
+<div class="card"><span class="num">2</span><h3>🚀 Execute</h3><p class="mut">Trabalhe em pequenas etapas com o apoio das ferramentas.</p></div>
+<div class="card"><span class="num">3</span><h3>🔁 Reajuste</h3><p class="mut">Acompanhe o progresso e adapte o planejamento à sua realidade.</p></div>
+</div>
+<p style="margin-top:22px"><a class="btn" href="#precos">quero começar agora 🚀</a></p>
+</div></section>
+
+
+
+<section id="precos"><div class="w">
+<p class="eyebrow">Planos</p><h2>escolha o ponto de partida que cabe na sua rotina.</h2><p class="mut">Dois planos, valores claros. Confira as condições completas no checkout.</p>
+<div class="grid" id="plans" style="margin-top:22px"></div>
+</div></section>
+
+<section id="depois"><div class="w"><p class="eyebrow">Depois do pagamento</p><h2>o que você recebe depois de pagar.</h2><p class="mut">Sem mistério: veja o caminho e o que cada plano libera.</p>
+<div class="grid" style="margin:22px 0"><div class="card"><span class="num">1</span><h3>✅ Pagamento confirmado</h3><p class="mut">Você finaliza a compra no checkout do plano escolhido.</p></div><div class="card"><span class="num">2</span><h3>🔓 Acesso liberado</h3><p class="mut">Você recebe as instruções de acesso após a confirmação do pagamento.</p></div><div class="card"><span class="num">3</span><h3>🌱 Comece pelo básico</h3><p class="mut">Abra o planner, escolha 3 prioridades e faça sua primeira sessão de foco.</p></div></div>
+<div class="grid" id="after"></div>
+<p class="mut" style="font-size:13px;margin-top:14px">Novos recursos do plano são liberados quando efetivamente disponibilizados.</p></div></section>
+<section id="faq" style="padding-top:0"><div class="w"><h2>perguntas frequentes.</h2><div id="faqs"></div></div></section>
+
+<section class="band"><div class="w" style="text-align:center">
+<h2>seu próximo projeto não precisa ficar só na sua cabeça.</h2>
+<p>Comece com uma tarefa. Dê o próximo passo. Construa um sistema que você consiga adaptar à vida real.</p>
+<a class="btn pu" href="#precos">quero conhecer o FOCO FLUIDO 🌿</a>
+</div></section>
+</main>
+
+<a class="btn pu mcta" href="#precos">Ver planos</a>
+<footer><div class="w">
+<nav><span><b>FOCO FLUIDO</b></span><span><a href="membros.html">Área de membros</a> · <a href="#topo">Sobre o produto</a> · <a href="#" data-cfg="contact">Contato</a> · <a href="#" data-cfg="privacy">Privacidade</a> · <a href="#" data-cfg="refund">Reembolso</a></span></nav>
+<p class="mut" style="margin-top:14px">© 2026 FOCO FLUIDO. Todos os direitos reservados.</p><p class="mut">O FOCO FLUIDO oferece ferramentas educacionais de organização e produtividade e não substitui avaliação ou acompanhamento profissional de saúde.</p>
+</div></footer>
+
+<script>
+/* ===== CONFIG: edite aqui preços, links e condições comerciais ===== */
+const CONFIG={
+ plans:[
+  {name:"Essencial",price:"R$ 19,90",checkout:"https://checkout-proprio.com/db2260a390cc08e4",hl:false,items:["Acesso ao método de produtividade","Planner digital","Checklists e templates","Guias de planejamento","Acesso aos materiais adquiridos"]},
+  {name:"Completo",price:"R$ 29,90",checkout:"https://checkout-proprio.com/fc3a951c5cf2156c",hl:true,items:["Todos os recursos do Essencial","Materiais adicionais","Novos recursos do plano, quando disponibilizados"]}
+ ],
+ links:{contact:"mailto:focofluido@gmail.com",terms:"#",privacy:"#",refund:"#faq"},
+ faq:[
+  ["Preciso ter diagnóstico de TDAH para utilizar o sistema?","Não. Qualquer pessoa que vive se perdendo entre ideias e tarefas pode usar. O FOCO FLUIDO é um método de organização: não faz diagnóstico e não substitui acompanhamento de saúde."],
+  ["O produto funciona para quem trabalha sozinho?","Funciona sim. O método e o planner foram pensados para quem toca tudo sozinho."],
+  ["Como funciona o planner digital?","Você anota o que precisa fazer, marca a prioridade e quanto tempo leva, e vai riscando. O que sobrar do dia vai para amanhã, sem apagar nada. Dá para testar na demonstração aqui da página."],
+  ["Posso adaptar o método à minha rotina?","Dá. O método tem poucos passos de propósito, para você encaixar no seu jeito de trabalhar. Se o dia sair do planejado, ajusta e segue."],
+  ["O acesso é imediato após o pagamento?","Assim que o Pix é confirmado, o link da área de membros chega para você. Se não chegar em alguns minutos, escreva para focofluido@gmail.com."],
+  ["Quais são as formas de pagamento?","O pagamento é feito por Pix, direto no checkout, ao escolher o plano."],
+ ]};
+const $=s=>document.querySelector(s);
+const esc=s=>s.replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+$("#mb").onclick=e=>{const o=$("#lk").classList.toggle("open");e.target.setAttribute("aria-expanded",o)};
+document.querySelectorAll(".links a").forEach(a=>a.onclick=()=>$("#lk").classList.remove("open"));
+$("#plans").innerHTML=CONFIG.plans.map(p=>`<div class="card price ${p.hl?"hl":""}">${p.hl?'<span class="badge">⭐ Mais completo</span>':''}<h3>${p.name}</h3><div class="amt">${p.price}</div><p class="mut" style="font-size:13px;margin:0">${p.hl?'Tudo do Essencial + materiais extras':'Método, planner e materiais'}</p><ul>${p.items.map(i=>`<li>${i}</li>`).join("")}</ul><a class="btn ${p.hl?"pu":""}" href="${p.checkout}">Quero o plano ${p.name}</a></div>`).join("");
+$("#faqs").innerHTML=CONFIG.faq.map(f=>`<details><summary>${f[0]}</summary><p class="mut" style="margin:10px 0 0">${f[1]}</p></details>`).join("");
+document.querySelectorAll("[data-cfg]").forEach(a=>a.href=CONFIG.links[a.dataset.cfg]);
+$("#after").innerHTML=CONFIG.plans.map(p=>`<div class="card"><h3>Plano ${p.name} · ${p.price}</h3><ul style="padding-left:18px;margin:10px 0 0">${p.items.map(i=>`<li>${i}</li>`).join("")}</ul></div>`).join("");
+if("IntersectionObserver" in window&&!matchMedia("(prefers-reduced-motion:reduce)").matches){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.1});document.querySelectorAll("main .card:not(.price),main details").forEach(el=>{el.classList.add("rv");io.observe(el)})}
+
+/* ===== Planner (armazenamento local; isolado em Store para migrar a um banco) ===== */
+const Store={
+ get(){try{return JSON.parse(localStorage.getItem("ff_state"))||null}catch(e){return null}},
+ set(v){try{localStorage.setItem("ff_state",JSON.stringify(v))}catch(e){}}
+};
+let S=Store.get()||{tasks:[{id:1,t:"Escolher 3 prioridades de hoje",p:"alta",d:10,done:false}],wins:[],n:2};
+let filter="all";
+const h=new Date().getHours();
+$("#greet").textContent=(h<12?"Bom dia":h<18?"Boa tarde":"Boa noite")+". Um passo de cada vez.";
+$("#date").textContent=new Date().toLocaleDateString("pt-BR",{weekday:"long",day:"numeric",month:"long"});
+function save(){Store.set(S);render()}
+function render(){
+ const L=S.tasks.filter(t=>filter=="all"||(filter=="done")==t.done);
+ $("#list").innerHTML=L.length?L.map(t=>`<div class="task ${t.done?"done":""}"><input type="checkbox" ${t.done?"checked":""} data-c="${t.id}" aria-label="Concluir: ${esc(t.t)}"><span class="t">${esc(t.t)}</span><span class="tag ${t.p}">${t.p} · ${t.d} min</span><button class="ib" data-e="${t.id}">editar</button><button class="ib" data-x="${t.id}">excluir</button></div>`).join(""):'<p class="mut">Nenhuma tarefa aqui.</p>';
+ const tot=S.tasks.length,dn=S.tasks.filter(t=>t.done).length;
+ $("#pb").style.width=(tot?dn/tot*100:0)+"%";
+ $("#pt").textContent=`${dn} de ${tot} concluídas`;
+ $("#wins").innerHTML=S.wins.length?S.wins.slice(-5).map(w=>`<li>${esc(w)}</li>`).join(""):'<li class="mut">Suas conquistas aparecem aqui.</li>';
+}
+$("#addb").onclick=()=>{
+ const t=$("#nt").value.trim(),d=parseInt($("#nd").value,10);
+ if(!t){$("#err").textContent="Escreva o nome da tarefa.";return}
+ if(!(d>0)){$("#err").textContent="Informe uma duração válida em minutos.";return}
+ $("#err").textContent="";S.tasks.push({id:S.n++,t,p:$("#np").value,d,done:false});$("#nt").value="";save();
+};
+$("#nt").onkeydown=e=>{if(e.key=="Enter")$("#addb").click()};
+$("#list").onclick=e=>{
+ const g=k=>+e.target.dataset[k];
+ if(e.target.dataset.x){S.tasks=S.tasks.filter(t=>t.id!=g("x"));save()}
+ if(e.target.dataset.e){const t=S.tasks.find(t=>t.id==g("e")),v=prompt("Editar tarefa:",t.t);if(v&&v.trim()){t.t=v.trim();save()}}
+ if(e.target.dataset.c){const t=S.tasks.find(t=>t.id==g("c"));t.done=e.target.checked;
+  if(t.done){S.wins.push(t.t);$("#msg").textContent="Boa! Você concluiu um passo. Respire e siga no seu ritmo."}save()}
+};
+document.querySelectorAll(".tabs button").forEach(b=>b.onclick=()=>{filter=b.dataset.f;document.querySelectorAll(".tabs button").forEach(x=>x.setAttribute("aria-pressed",x==b));render()});
+$("#resched").onclick=()=>{const n=S.tasks.filter(t=>!t.done).length;S.tasks=S.tasks.filter(t=>t.done);$("#msg").textContent=n?`${n} tarefa(s) não concluída(s) saíram de hoje. Sem culpa: recomece amanhã.`:"Nada pendente para reorganizar.";save()};
+render();
+
+/* ===== Timer ===== */
+let left=1500,iv=null;
+const fmt=s=>String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0");
+const mins=()=>Math.min(120,Math.max(1,parseInt($("#tm").value,10)||25));
+function draw(){$("#td").textContent=fmt(left)}
+function stop(){clearInterval(iv);iv=null;$("#ts").textContent=left>0&&left<mins()*60?"Continuar":"Iniciar"}
+$("#ts").onclick=()=>{
+ if(iv){stop();return}
+ if(left<=0||left==1500&&mins()*60!=1500)left=mins()*60;
+ $("#ts").textContent="Pausar";
+ iv=setInterval(()=>{left--;draw();if(left<=0){stop();$("#ts").textContent="Iniciar";$("#msg").textContent="Sessão concluída. Você mostrou presença. Que tal uma pausa curta?"}},1000);
+};
+$("#tr").onclick=()=>{stop();left=mins()*60;draw();$("#ts").textContent="Iniciar"};
+$("#tm").onchange=()=>{if(!iv){left=mins()*60;draw()}};
+</script>
+</body>
+</html>
